@@ -19,6 +19,7 @@ function makeHero(event) {
 
     
 }
+//creates a pop out window dispalying X is not allowed in the name field
 /*form.addEventListener('submit',validate,false);
 
 function validate(event) {
@@ -28,7 +29,7 @@ function validate(event) {
         alert('Your name is not allowed to start with X!');
     }
 }*/
-
+//this is a custom error handler by detecting the error and creating a div element to dosplay the error message to the user 
 const label = form.querySelector('label');
 const error = document.createElement('div');
 error.classList.add('error');
@@ -40,7 +41,7 @@ function validateInline() {
     if(heroName.startsWith('X')){
     error.style.display = 'block';
     } else {
-    error.style.display = 'none';
+    error.style.display = 'none'; //if there is not error it won't display anything 
     }
 }
 
