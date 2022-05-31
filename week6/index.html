@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TODO challenge</title>
+<link rel="stylesheet" href="week6.css">
+
+</head>
+<body>
+
+    <div id="myDIV" class="header">
+      <h1>TODOS</h1>
+      <h3>your to do list web app to keep track of things that need to get done Asap!</h3>
+    </div>
+    
+    <ul id="myList">
+     
+    </ul>
+    <p class="taskLeft"></p>
+    <button class="all" onclick="showAll()">All items</button>
+    
+    <button class="buttonchecked" onclick="showChecked()">items done</button>
+    <button class="unchecked" onclick="showUnchecked()">not done</button> <br><br><br><br>
+    <div class="buttonAdd">
+    <input type="text" id="myInput" placeholder="Add a new item to your list">
+    <span onclick="newElement()" class="addBtn">+</span> </div>
+    </body>
+    <script src="week6.js"></script>
+</html>
