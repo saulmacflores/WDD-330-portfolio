@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star wars api</title>
+    <style>
+        body{
+            background-color: rgb(32, 32, 73);
+        }
+        li{
+            padding: 5px;
+            list-style: none;
+            text-align: center;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: goldenrod;
+        }
+        h1{
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: goldenrod;
+        }
+        #prev, #starbutton{
+            color: black;
+            background-color: gold;
+
+        }
+        h3{
+            color: darkgray;
+        }
+       
+    </style>
+</head>
+<body>
+    <h1>Star wars characters</h1>
+    <h3>click button to show a list of Star Wars characters</h3>
+    <div id="people"> 
+        <ul id="peopleList">    
+
+        </ul>
+        <button id="starbutton" onclick="getpeople('https://swapi.dev/api/people')">List</button>
+        <button id="prev" onclick="getpeople('https://swapi.dev/api/people')">previous</button>
+    </div>
+<script>
+    const btn = document.querySelector('#starbutton');
+    const btn2 = document.querySelector('#prev');
+
+    async function getpeople(url){
+        try{
+            const responce = await fetch(url);
+            if (! responce.ok) {
+                throw Error(responce.statusText)
+            } else{
+                const fetchJson = await responce.json();
+                console.log(fetchJson);
+                showpeople(fetchJson)
+            }
+        } catch (error){
+            console.log(error);
+        }
+    }
+
+    function showpeople(data){
+        const container = document.querySelector('#peopleList');
+        if (data.next) {
+            btn.textContent = "Next page";
+            btn.setAttribute('onclick', `getpeople('${data.next}')`)
+        }
+        if (data.previous) {
+            btn2.textContent = "Previous page";
+            btn2.setAttribute('onclick', `getpeople('${data.previous}')`)
+        }
+
+        data.results.forEach(element => {
+            const listItem = document.createElement('li');
+            listItem.textContent = element.name;
+            container.appendChild(listItem);
+        });
+    }
+
+</script>
+
+</body>
+</html>

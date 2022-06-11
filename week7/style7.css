@@ -1,0 +1,15 @@
+body{
+    background-color: #160C28;
+}
+div{
+    color: #EFCB68;
+    padding: 10px;
+}
+button{
+    background-color: #AEB7B3;
+    color: white;
+    padding: 5px;
+}
+h1, h3{
+    color: #E1EFE6;
+}
