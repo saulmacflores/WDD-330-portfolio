@@ -1,5 +1,5 @@
-// Titles: https://omdbapi.com/?s=thor&page=1&apikey=ff416dec
-// details: http://www.omdbapi.com/?i=tt3896198&apikey=ff416dec
+// Titles: https://omdbapi.com/?s=ironman&page=1&apikey=ff416dec
+
 
 const movieSearchBox = document.getElementById('movie-search-box');
 const searchList = document.getElementById('search-list');
@@ -53,12 +53,10 @@ function loadMovieDetails(){
     const searchListMovies = searchList.querySelectorAll('.search-list-item');
     searchListMovies.forEach(movie => {
         movie.addEventListener('click', async () => {
-            // console.log(movie.dataset.id);
             searchList.classList.add('hide-search-list');
             movieSearchBox.value = "";
             const result = await fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=ff416dec`);
             const movieDetails = await result.json();
-            // console.log(movieDetails);
             displayMovieDetails(movieDetails);
         });
     });
@@ -67,7 +65,7 @@ function loadMovieDetails(){
 function displayMovieDetails(details){
     resultGrid.innerHTML = `
     <div class = "movie-poster">
-        <img src = "${(details.Poster != "N/A") ? details.Poster : "image_not_found.png"}" alt = "movie poster">
+        <img src = "${(details.Poster != "N/A") ? details.Poster : "/.image_not_found.png"}" alt = "movie poster">
     </div>
     <div class = "movie-info">
         <h3 class = "movie-title">${details.Title}</h3>
@@ -88,7 +86,7 @@ function displayMovieDetails(details){
 
 
 window.addEventListener('click', (event) => {
-    if(event.target.className != "form-control"){
+    if(event.target.className != "inputSearch"){
         searchList.classList.add('hide-search-list');
     }
 });
