@@ -79,6 +79,7 @@ function displayMovieDetails(details){
         <p class = "actors"><b>Actors: </b>${details.Actors}</p>
         <p class = "plot"><b>Plot:</b> ${details.Plot}</p>
         <p class = "BoxOffice"><b>Box Office:</b> ${details.BoxOffice}</p>
+        <p class = "Ratings"><b>Rotten tomatoes:</b> ${details.Ratings[1].Value}</p>
         <p class = "language"><b>Language:</b> ${details.Language}</p>
         <p class = "awards"><b><i class = "fas fa-award"></i></b> ${details.Awards}</p>
 
