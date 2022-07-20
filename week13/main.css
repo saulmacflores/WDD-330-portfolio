@@ -33,7 +33,7 @@ img{
     margin: 10 auto;
     padding: 10 1rem;
 }
-.search-container{
+.searchBar{
     background-color: var(--md-dark-color);
     height: 180px;
     display: -webkit-box;
@@ -116,8 +116,12 @@ img{
     background-color: #1f1f1f;
 }
 .search-list-item{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 .search-item-thumbnail img{
     width: 40px;
